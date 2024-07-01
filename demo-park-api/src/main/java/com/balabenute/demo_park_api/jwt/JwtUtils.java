@@ -13,14 +13,14 @@ import java.util.Date;
 @Slf4j
 public class JwtUtils {
 
-    public static final String JWT_BEARER = "Bearer: ";
-    public static final String JWT_AUTHORIZATION = "Authorization: ";
+    public static final String JWT_BEARER = "Bearer ";
+    public static final String JWT_AUTHORIZATION = "Authorization";
     public static final String SECRET_KEY = "0123456789-0123456789-0123456789";
     public static final long EXPIRE_DAYS = 0;
     public static final long EXPIRE_HOURS = 0;
     public static final long EXPIRE_MINUTES = 2;
 
-    private JwtUtils() {
+    private JwtUtils(){
     }
 
     private static Key generateKey() {
@@ -55,7 +55,7 @@ public class JwtUtils {
                     .setSigningKey(generateKey()).build()
                     .parseClaimsJws(refactorToken(token)).getBody();
         } catch (JwtException ex) {
-            log.error(String.format("Token inválido %s"), ex.getMessage());
+            log.error(String.format("Token invalido %s", ex.getMessage()));
         }
         return null;
     }
@@ -71,7 +71,7 @@ public class JwtUtils {
                     .parseClaimsJws(refactorToken(token));
             return true;
         } catch (JwtException ex) {
-            log.error(String.format("Token inválido %s"), ex.getMessage());
+            log.error(String.format("Token invalido %s", ex.getMessage()));
         }
         return false;
     }

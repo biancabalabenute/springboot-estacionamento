@@ -2,12 +2,17 @@ package com.balabenute.demo_park_api.service;
 
 import com.balabenute.demo_park_api.entity.Cliente;
 import com.balabenute.demo_park_api.exception.CpfUniqueViolationException;
+import com.balabenute.demo_park_api.exception.EntityNotFoundException;
 import com.balabenute.demo_park_api.repository.ClienteRepository;
-import jakarta.persistence.EntityNotFoundException;
+import com.balabenute.demo_park_api.repository.projection.ClienteProjection;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @Service
@@ -31,5 +36,15 @@ public class ClienteService {
         return clienteRepository.findById(id).orElseThrow(
                 () -> new EntityNotFoundException(String.format("Cliente id=%s não encontrado no sistema", id))
         );
+    }
+
+    @Transactional(readOnly = true)
+    public Page<ClienteProjection> buscarTodos(Pageable pageable) {
+        return clienteRepository.findAllPageable(pageable);
+    }
+
+    @Transactional(readOnly = true)
+    public Cliente buscarPorUsuarioId(Long id) {
+        return clienteRepository.findByUsuarioId(id);
     }
 }

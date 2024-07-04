@@ -28,7 +28,7 @@ public class Vaga implements Serializable {
     private String codigo;
     @Column(name = "status", nullable = false)
     @Enumerated(EnumType.STRING)
-    private StatusVaga statusVaga;
+    private StatusVaga status;
 
     @CreatedDate
     @Column(name = "data_criacao")

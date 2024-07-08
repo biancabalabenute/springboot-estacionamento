@@ -49,6 +49,7 @@ WHERE id = 1;
 - Java JDK 17
 - Servidor Postgre
 - pgAdmin
+- IntelliJ IDEA (ou outra IDE)
 
 ## Ambiente de desenvolvimento usado
 Este projeto foi desenvolvido utilizando as seguintes ferramentas:

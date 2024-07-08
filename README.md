@@ -23,6 +23,16 @@ spring.datasource.password=********
 3 - Testando as Requisições:
 - Você pode começar a testar as requisições via Postman ou Swagger em http://localhost:8080/swagger-ui/index.html.
 
+## IMPORTANTE
+- Você deve criar primeiro um usuário, por padrão todos os usuários são criado como 'CLIENTE', para ter acesso a algumas funções é necessário o perfil 'ADMIN'.
+- Isso pode ser resolvido com a alteração no banco de dados:
+```bash
+UPDATE usuarios
+SET role = 'ADMIN'
+WHERE id = 1;
+```
+- Você deve se autenticar com o seu perfil de usuário, seja ele 'CLIENTE' ou 'ADMIN' para ter acesso a todas as demais funcionalidades, nem todas as funcionalidades de 'CLIENTE' são possíveis de realizar como 'ADMIN' e vice-versa.
+
 ## Tecnologias para desenvolver este projeto:
 - Java
 - Spring Boot

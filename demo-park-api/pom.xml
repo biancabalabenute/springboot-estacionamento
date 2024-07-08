@@ -72,7 +72,6 @@
             </exclusions>
         </dependency>
 
-        <!-- se der merda é daqui pra baixo-->
         <dependency>
             <groupId>net.sf.jasperreports</groupId>
             <artifactId>jasperreports-fonts</artifactId>

@@ -45,7 +45,10 @@ WHERE id = 1;
 - Teste de integração realizados
 
 ## Pré-requisitos
+- Git
 - Java JDK 17
+- Servidor Postgre
+- pgAdmin
 
 ## Ambiente de desenvolvimento usado
 Este projeto foi desenvolvido utilizando as seguintes ferramentas:
